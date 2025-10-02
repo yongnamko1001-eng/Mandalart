@@ -1,0 +1,150 @@
+body {
+  font-family: 'Nanum Gothic', 'Malgun Gothic', Arial, sans-serif;
+  background: #f8fafb;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  padding: 32px 24px 24px 24px;
+}
+h1 {
+  color: #03c75a;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+.mandalart-wrapper {
+  overflow-x: auto;
+}
+#mandalart {
+  border-collapse: collapse;
+  margin: 0 auto 24px auto;
+  background: #fff;
+}
+#mandalart td, #mandalart th {
+  border: 1.5px solid #e5e8eb;
+  width: 110px;
+  height: 60px;
+  min-width: 80px;
+  min-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  background: #fff;
+  transition: background 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+#mandalart td.central {
+  background: #eaffea;
+  font-weight: bold;
+  color: #03c75a;
+}
+#mandalart td.subgoal {
+  background: #f3f6fa;
+  color: #222;
+}
+#mandalart td:focus, #mandalart td.editing {
+  outline: 2px solid #03c75a;
+  background: #e0f8e0;
+}
+.controls {
+  text-align: center;
+  margin-top: 16px;
+}
+button {
+  background: #03c75a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 16px;
+  margin: 0 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #029e4b;
+}
+.info {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  font-size: 13px;
+}
+/* 진행률 바 */
+.progress-bar {
+  width: 80%;
+  height: 6px;
+  background: #e5e8eb;
+  border-radius: 3px;
+  margin: 2px auto 0 auto;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: #03c75a;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+/* 강조 효과 */
+.highlight {
+  box-shadow: 0 0 0 3px #ffe066 inset, 0 0 8px #ffe066;
+  font-weight: bold;
+}
+/* 셀 커스텀 색상 */
+.custom-color {
+  border: 2px solid #03c75a;
+}
+/* 모달 스타일 */
+.modal {
+  display: block; /* JS에서 제어 */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.25);
+  justify-content: center; align-items: center;
+}
+.modal-content {
+  background: #fff;
+  margin: 10vh auto;
+  padding: 24px 20px 16px 20px;
+  border-radius: 10px;
+  max-width: 350px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  position: relative;
+}
+.modal-content h3 { margin-top: 0; color: #03c75a; }
+.close {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+}
+/* 버튼 추가 스타일 */
+.controls button, .controls select {
+  margin: 4px 4px 0 0;
+}
+/* 모바일 안내 */
+@media (max-width: 700px) {
+  .info { font-size: 11px; }
+  .modal-content { max-width: 95vw; }
+}
+@media (max-width: 700px) {
+  #mandalart td, #mandalart th {
+    width: 60px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .container {
+    padding: 10px;
+  }
+}
