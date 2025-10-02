@@ -17,27 +17,7 @@
     <div class="controls">
       <button id="saveBtn">저장</button>
       <button id="loadBtn">불러오기</button>
-      <button id="exportPdfBtn">PDF로 내보내기</button>
-      <button id="exportImgBtn">이미지로 저장</button>
-      <button id="backupBtn">백업 내보내기</button>
-      <button id="restoreBtn">백업 불러오기</button>
-      <button id="newBoardBtn">새 만다라트</button>
-      <select id="boardList"></select>
-      <span class="info">셀을 클릭하면 수정할 수 있습니다.<br>셀 우클릭: 색상/진행률/메모/마감일/강조<br>모바일: 길게 누르기</span>
-      <input type="file" id="restoreFile" style="display:none" accept="application/json">
-      <!-- 메모/마감일/강조/진행률 모달 -->
-      <div id="cellModal" class="modal" style="display:none">
-        <div class="modal-content">
-          <span class="close" id="closeModal">&times;</span>
-          <h3>셀 상세 관리</h3>
-          <label>메모:<br><textarea id="cellMemo" rows="3" style="width:100%"></textarea></label><br>
-          <label>진행률:<input type="range" id="cellProgress" min="0" max="100" step="10"> <span id="progressVal">0%</span></label><br>
-          <label>색상:<input type="color" id="cellColor"></label><br>
-          <label>마감일:<input type="date" id="cellDeadline"></label><br>
-          <label><input type="checkbox" id="cellHighlight"> 강조</label><br>
-          <button id="saveCellDetail">저장</button>
-        </div>
-      </div>
+      <span class="info">셀을 클릭하면 수정할 수 있습니다.</span>
     </div>
   </div>
   <script src="script.js"></script>
