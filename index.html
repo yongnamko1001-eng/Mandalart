@@ -1,25 +1,240 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>만다라트 자기관리표</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>라이프 매트릭스</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
+    <!-- CSS 영역 -->
+    <style>
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #03c75a;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }.
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 16px 10px;
+            text-align: center;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        th {
+            background: #f3f6fa;
+            color: #222;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        td {
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+        }
+        tr:nth-child(even) td {
+            background: #f7f9fa;
+        }
+        td:hover, th:hover {
+            background: #e6f4ea;
+            color: #03c75a;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 10px 2px;
+            }
+            th, td {
+                padding: 8px 4px;
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th, td {
+                padding: 10px 6px;
+                font-size: 0.9rem;
+            }
+            th {
+                background: #03c75a;
+                color: #fff;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>만다라트 자기관리표</h1>
-    <div class="mandalart-wrapper">
-      <table id="mandalart">
-        <!-- JS로 동적 생성 -->
-      </table>
+    <div class="container">
+        <h1>라이프 매트릭스</h1>
+        <div style="text-align:right; margin-bottom:10px;">
+            <button id="saveBtn" style="background:#03c75a;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:700;cursor:pointer;">저장</button>
+            <input type="file" id="loadInput" accept="application/json" style="display:none;">
+            <button id="loadBtn" style="background:#fff;color:#03c75a;border:1px solid #03c75a;padding:8px 18px;border-radius:6px;font-weight:700;cursor:pointer;">불러오기</button>
+        </div>
+        <table id="matrixTable">
+            <thead>
+                <tr id="headerRow">
+                    <th>내몸/마음의 변화 이해</th>
+                    <th>가족관계변화 적응하기</th>
+                    <th>직업시장변화 적응하기</th>
+                    <th>100개 소원버킷 리스트</th>
+                    <th>노후에 어떻게 살고 싶나?</th>
+                    <th>남기고 싶은 묘비명</th>
+                    <th>국민연금 증액 작업</th>
+                    <th>개인연금 준비</th>
+                    <th>주택연금 언제 받을까?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>변화와 나의 연관성 찾기</td><td>변화</td><td>경제적 변화 적응하기</td><td>나의 강점은?</td><td>자기이해</td><td>나의 약점은?</td><td>나쁜 지출 습관 개선</td><td>재무</td><td>자산배분 투자하기</td></tr>
+                <tr><td>인적네트워크의 도움받기</td><td>평생학습 활용</td><td>기술적변화 수용하기</td><td>나의 흥미는?</td><td>내 삶에 꼭 필요한 10가지</td><td>나의 직업가치?</td><td>보험관리는 어떻게?</td><td>수입/지출 관리</td><td>건강에 투자하기</td></tr>
+                <tr><td>퇴직후 할 일 (기존? 새 일?)</td><td>내 몸값을 높이려면?</td><td>죽기전에 하고싶은일</td><td>변화</td><td>자기이해</td><td>재무</td><td>1주=1토 살기 체험</td><td>요리 배우기</td><td>기타배우기(시니어밴드)</td></tr>
+                <tr><td>주된 일자리 이탈시키는?</td><td>직업</td><td>완전은퇴 시키는?</td><td>직업</td><td>나</td><td>여가</td><td>유튜브를 통한 학습</td><td>여가</td><td>트레킹 모임</td></tr>
+                <tr><td>업무관련 네트워크 확장</td><td>AI, 내 일에 활용하기</td><td>시골북카페 민박집 운영</td><td>건강</td><td>가족관계</td><td>사회적관계</td><td>독서모임 운영</td><td>평생학습 즐기기</td><td>야구장 인근 이사</td></tr>
+                <tr><td>매일 10분 이상 산책</td><td>주 1회 이하 음주</td><td>매일 10분 스트레칭</td><td>아내부터 챙기기</td><td>이이들의 서포터 되기</td><td>가사분담 늘려가기</td><td>친구들과 정기모임</td><td>그 사람이 필요한 것은?</td><td>공감/소통 지속학습</td></tr>
+                <tr><td>욕심 줄이기</td><td>건강</td><td>감사일기 쓰기</td><td>테마가 있는 가족여행</td><td>가족관계</td><td>양가가족 챙기기</td><td>온라인 모임 활용하기</td><td>사회적관계</td><td>새 친구를 사귀려면?</td></tr>
+                <tr><td>14H 간헐적 단식</td><td>규칙적 수면시간</td><td>아침/저녁 5분 명상</td><td>가족이 싫어 하는 것은?</td><td>가르치려 들지 않기</td><td>가족과 추억 기록하기</td><td>응원단 되기 / 응원단 활용</td><td>Give&Take (먼저 돕기)</td><td>동네친구 만들기</td></tr>
+            </tbody>
+        </table>
     </div>
-    <div class="controls">
-      <button id="saveBtn">저장</button>
-      <button id="loadBtn">불러오기</button>
-      <span class="info">셀을 클릭하면 수정할 수 있습니다.</span>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <!-- JavaScript 영역 -->
+    <script>
+    // 셀 인라인 편집 (헤더 포함)
+    function makeCellEditable(cell, isHeader) {
+        if (cell.querySelector('input')) return;
+        const old = cell.textContent;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = old;
+        input.style.width = '98%';
+        input.style.fontSize = '1rem';
+        input.style.border = '1px solid #03c75a';
+        input.style.borderRadius = '4px';
+        input.style.padding = '4px 6px';
+        cell.textContent = '';
+        cell.appendChild(input);
+        input.focus();
+        input.setSelectionRange(0, input.value.length);
+        input.addEventListener('blur', function() {
+            cell.textContent = input.value;
+        });
+        input.addEventListener('keydown', function(ev) {
+            if (ev.key === 'Enter') {
+                input.blur();
+            } else if (ev.key === 'Escape') {
+                cell.textContent = old;
+            }
+        });
+    }
+    // 헤더 셀 인라인 편집 이벤트
+    document.querySelectorAll('#matrixTable thead th').forEach(th => {
+        th.addEventListener('click', function() {
+            makeCellEditable(th, true);
+        });
+    });
+    // 바디 셀 인라인 편집 이벤트
+    function setBodyCellEditEvents() {
+        document.querySelectorAll('#matrixTable tbody td').forEach(td => {
+            td.addEventListener('click', function() {
+                makeCellEditable(td, false);
+            });
+        });
+    }
+    setBodyCellEditEvents();
+
+    // 표 데이터를 2차원 배열로 변환 (헤더 포함)
+    function getTableData() {
+        const header = Array.from(document.querySelectorAll('#matrixTable thead th')).map(th => th.textContent);
+        const rows = Array.from(document.querySelectorAll('#matrixTable tbody tr'));
+        const body = rows.map(tr => Array.from(tr.children).map(td => td.textContent));
+        return [header, ...body];
+    }
+    // 표 데이터를 2차원 배열로 반영 (헤더 포함)
+    function setTableData(data) {
+        if (!Array.isArray(data) || data.length < 2) return;
+        // 헤더
+        const headerRow = document.querySelector('#matrixTable thead tr');
+        headerRow.innerHTML = '';
+        data[0].forEach(cell => {
+            const th = document.createElement('th');
+            th.textContent = cell;
+            headerRow.appendChild(th);
+        });
+        // 헤더 셀 인라인 편집 이벤트 재부여
+        document.querySelectorAll('#matrixTable thead th').forEach(th => {
+            th.addEventListener('click', function() {
+                makeCellEditable(th, true);
+            });
+        });
+        // 바디
+        const tbody = document.querySelector('#matrixTable tbody');
+        tbody.innerHTML = '';
+        data.slice(1).forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+                const td = document.createElement('td');
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+        setBodyCellEditEvents();
+    }
+    // 저장 버튼: JSON 다운로드
+    document.getElementById('saveBtn').onclick = function() {
+        const data = getTableData();
+        const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'life_matrix_data.json';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 100);
+    };
+    // 불러오기 버튼: 파일 선택창
+    document.getElementById('loadBtn').onclick = function() {
+        document.getElementById('loadInput').click();
+    };
+    // 파일 선택 시 데이터 반영
+    document.getElementById('loadInput').onchange = function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            try {
+                const data = JSON.parse(ev.target.result);
+                if (Array.isArray(data) && data.length > 1 && data.every(row => Array.isArray(row))) {
+                    setTableData(data);
+                } else {
+                    alert('올바른 형식의 파일이 아닙니다.');
+                }
+            } catch {
+                alert('파일을 읽을 수 없습니다.');
+            }
+        };
+        reader.readAsText(file);
+    };
+    </script>
 </body>
 </html>
